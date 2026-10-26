@@ -1,0 +1,12 @@
+# Conceptos Básicos de Redes Informáticas 
+- ### Tipos de Redes, Componentes y Conexiones
+- ### Estándares y Protocolos en las comunicaciones
+- ### Comunicación en las redes Ethernet
+- ### Direcciones IPv4 en las comunicaciones y segmentación
+- ### Caraterísticas del direccionamiento IPv6
+- ### Servidor HDCP
+- ### ARP y ND permiten la comunicación en una red
+- ### Crear una LAN completamante conectada
+- ### Cómo acceden los clientes a los servicios de Internet
+- ### Servicios comunes en la capa de aplicación
+- ### User herramientas para probar conectividad y resolver problemas 
