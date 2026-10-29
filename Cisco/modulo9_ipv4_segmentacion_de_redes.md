@@ -182,3 +182,35 @@ Los routers leen los 8 bits de izquierda a derecha. Cada posición tiene un valo
 > Imagina que el octeto es un tablero con 8 interruptores de luz en la pared, de izquierda a derecha. Cada interruptor tiene una etiqueta con un "precio" (128, 64, 32, 16, 8, 4, 2, 1). 
 > - Si el bit es un **1**, el interruptor está **ENCENDIDO**, y sumo ese precio a la cuenta.
 > - Si el bit es un **0**, el interruptor está **APAGADO**, y no sumo nada.
+
+
+### Tipos de Difusión (Broadcast): Limitada vs Dirigida
+
+Una difusión significa que todos los paquetes de la red van a recibir ese paquete y el switch lo va a reenviar por todos los puertos excepto por el de entrada[cite: 4]. Los dispositivos del mismo dominio de difusión deben procesar este paquete, lo que consume recursos[cite: 4]. 
+
+Para evitar tormentas de tráfico, los routers separan los dominios de difusión[cite: 4] y manejan estos mensajes de dos formas distintas:
+
+#### 1. Difusión Limitada (Local)
+- **Dirección IP de destino:** `255.255.255.255`[cite: 4].
+- **Comportamiento:** El mensaje inunda toda la red local donde se originó, pero **muere al llegar al router**. De manera predeterminada, los enrutadores no reenvían estas difusiones[cite: 4].
+- **Uso común:** Cuando tu computadora se conecta a la red y grita "¿Hay algún servidor DHCP que me dé una IP?".
+
+#### 2. Difusión Dirigida (Remota)
+- **Dirección IP de destino:** La última IP válida de una subred específica (Ejemplo: `172.16.4.255` para la red `172.16.4.0/24`[cite: 4]).
+- **Comportamiento:** Se envía a todos los hosts de una red específica[cite: 4]. El paquete viaja por la red como si fuera un mensaje normal de unidifusión. Al llegar al router de la red de destino, ese router final lo convierte en una difusión local solo para ese segmento.
+- **Nota de seguridad:** Por motivos de seguridad (para evitar ataques de denegación de servicio como el *Smurf Attack*), los routers modernos suelen venir configurados para descartar difusiones dirigidas.
+
+#### Diagrama de Flujo: Limitada vs Dirigida
+
+```text
+[Host A: 192.168.1.10] 
+       |
+       v
+[Switch Local] ---> (Host B y C reciben el mensaje)
+       |
+       v
+[Router 1 (Puerta de enlace)]
+       |
+       +-- Si el destino es 255.255.255.255 ➡️ EL ROUTER LO BLOQUEA Y LO DESTRUYE (Limitada).
+       |
+       +-- Si el destino es 172.16.4.255 ➡️ EL ROUTER LO ENRUTA hacia la red 172.16.4.0 (Dirigida).
