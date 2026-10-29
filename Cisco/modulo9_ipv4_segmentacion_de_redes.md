@@ -133,3 +133,39 @@ Los (RIR) proporcionan bloques de direcciones IP a los proveedores ISP. Quienes 
 ARP - Un router puede propagar el paquete a otras ip para identificar si alguna responde dentro de la red. 
 
 ## Dominios de difusión y segmentación. 
+En una LAN ethernet los dispositivos utilizan difusión y el protocolo de resolución de direcciones (Address Resolution Protocol - ARP) para localizar otros dispositivos en la red. ARP envía transmisiones de capa 2 a una dirección IPv4 conocida en la red local para descubrir la dirección MAC asociada. Los dispositivos de LAN Ethernet también localizan otros dispositivos. 
+
+Por lo general, un host adquiere la dirección IPv4  utilizando el protocolo de configuración dinámica DHCP qué envía trasmisiones a la red local para localizar un servidor DHCP. 
+
+Los Switches propagan las difusiones por toda la red, excepto por aquella dónde recibieron la difusión. 
+
+Los **Routers** no propagan difusiones. Cuando un router recibe una difusión no la propaga a otras interfaces. 
+Por lo tanto, cada interfaz de router se conecta  a un dominio de transmisión y las trasmisiones solo se propagan dentro de ese dominio de trasmisión específico. 
+
+## Problemas con los dominios de difusión grandes
+### Un dominio de difusión amplio 
+Un dominio de difusión grande conecta muchísimos hosts. Y esto puede generar problemas, debido a qué si tiene muchos host conectados, cada host debe procesar la información y esto genera una red lenta. Un dispositivo debe aceptar y procesar cada paquete de la difusión. 
+
+## Comunicación entre redes
+La solución para reducir el tamaño de la red para crear dominios de difusión más pequeños, se denomina subredes. Estos espacios de redes más pequeños se demonina subredes. 
+
+Ejemplo, dividir la red 172.16.0.0/16 en dos redes máscara 24. 172.16.0.0/24 y 172.16.1.0/24. 
+
+Cómo podemos ver en el ejemplo anterior, la longitud del prefijo ha cambiado de una sola red /16 a dos redes con máscara /24. Esta es la base de la división en subredes. El uso de bits de host para crear subredes adicionales. 
+
+**Nota** Los términos de subred y red suelen usar indistintamente. La mayoría de las redes son una subred de otra red más grande. 
+
+## Razones para la segmentación de redes
+
+La división en subredes disminuye el tráfico de la red general y mejora el rendimiento de la red. Y permite al administrador implementar políticas de seguridad para proteger la red, o liminar las difusiones por configuraciones mal realizadas o mal intencionadas. Separando departamentos o lotes de red. 
+
+Se puede realizar separación o división por pisos, por ubicación. por ejemplo 
+- LAN 1 (10.0.1.0/24) Primer piso. 
+- LAN 2 (10.0.2.0/24) Segundo Piso. 
+
+Se pueden crear por grupo o difusión, y separar de las interfaces que salen del router GO/0. puerto GigabitEthernet 1. 
+
+y por tipo de dispositivo, separar las impresoras, los servidores y las computadoras normales. 
+
+
+
