@@ -169,3 +169,16 @@ y por tipo de dispositivo, separar las impresoras, los servidores y las computad
 
 
 
+### Tabla de Conversión Binario a Decimal (El Octeto)
+
+Los routers leen los 8 bits de izquierda a derecha. Cada posición tiene un valor fijo basado en potencias de 2 (desde $2^7$ hasta $2^0$).
+
+| Posición (Bit) | 1º (MSB) | 2º | 3º | 4º | 5º | 6º | 7º | 8º (LSB) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Potencia** | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
+| **Valor Decimal**| **128** | **64** | **32** | **16** | **8** | **4** | **2** | **1** |
+
+> **Adaptación: El tablero de interruptores**
+> Imagina que el octeto es un tablero con 8 interruptores de luz en la pared, de izquierda a derecha. Cada interruptor tiene una etiqueta con un "precio" (128, 64, 32, 16, 8, 4, 2, 1). 
+> - Si el bit es un **1**, el interruptor está **ENCENDIDO**, y sumo ese precio a la cuenta.
+> - Si el bit es un **0**, el interruptor está **APAGADO**, y no sumo nada.
