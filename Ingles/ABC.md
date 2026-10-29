@@ -1,0 +1,27 @@
+- A **( ei )** - Apple
+- B **( bi )** - Book
+- C **( si )** - Cat
+- D **( di )** - Dog
+- E **( i )** - Egg
+- F **( ef )** - Fish
+- G **( yi )** - Girl
+- H **( eich )** - House
+- I **( ai )** - Ice
+- J **( yéi )** - Juice
+- K **( kei )** - Key
+- L **( el )** - Lemon
+- M **( em )** - Milk
+- N **( en )** - Net
+- O **( ou )** - Orange
+- P **( pi )** - Pen
+- Q **( kiu )** - Queen
+- R **( ar )** - Red
+- S **( es )** - Sun
+- T **( ti )** - Tree
+- U **( iu )** - Umbrella
+- V **( vi )** - Van
+- W **( dábal-iu )** - Water
+- X **( eks )** - X-ray
+- Y **( uái )** - Yellow
+- Z **( zi o zed )** - Zebra
+
